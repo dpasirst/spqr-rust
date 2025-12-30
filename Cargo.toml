@@ -1,0 +1,18 @@
+[package]
+name = "spqr-rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+libcrux-hkdf = "0.0.4"
+libcrux-hmac = "0.0.4"
+libcrux-ml-kem = { version = "0.0.4", default-features = false, features = ["incremental", "mlkem768"] }
+libcrux-sha3 = "0.0.4"
+# reed-solomon-simd currently, need to consider alternative for wasm
+g2p = "1.2.2"
+rand = "0.9.2"
+rand_core = "0.9.3"
+
+[features]
+default = ["std"]
+std = []
