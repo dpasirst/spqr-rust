@@ -26,7 +26,7 @@
 //! 2. The modulus must match Signal's 0x1100B
 //! 3. Signal generates/shares points
 //! 4. "Chunk at" as opposed to serial generation
-//! 4. Big Endian Wire encoding
+//! 5. Big Endian Wire encoding
 //!
 //! The crates listed above did not seem to reasonably support this complete
 //! set of criteria. Therefore, we created our own implementation. This
