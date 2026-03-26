@@ -7,7 +7,7 @@ edition = "2024"
 libcrux-hkdf = "0.0.6"
 libcrux-hmac = "0.0.6"
 libcrux-ml-kem = { version = "0.0.7", default-features = false, features = ["incremental", "mlkem768"] }
-libcrux-sha3 = "0.0.7"
+libcrux-sha3 = "0.0.8"
 # reed-solomon-simd currently, need to consider alternative for wasm
 g2p = "1.2.2"
 rand = "0.9.2"
