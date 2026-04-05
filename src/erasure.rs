@@ -376,6 +376,7 @@ mod tests {
         assert_eq!(recovered.unwrap().len(), 0);
     }
 
+    #[allow(clippy::vec_init_then_push)]
     #[test]
     fn test_signal_compatibility_workflow() {
         // 1. Variable length input (not a multiple of 48)
@@ -395,10 +396,9 @@ mod tests {
         // ... assuming k=2 for this small message, but codec.k will calculate it.
 
         // Let's just grab 'k' shares from random indices
-        let test_indices = vec![5, 0, 99, 3]; // Shuffled indices
+        let test_indices = [5, 0, 99, 3]; // Shuffled indices
         let mut recovery = ErasureCodecDecode::new(original_len);
-        for i in 0..k {
-            let idx = test_indices[i];
+        for &idx in test_indices.iter().take(k) {
             recovery.add_points(codec.chunk_at(idx as u16));
         }
 
@@ -407,6 +407,8 @@ mod tests {
 
         assert_eq!(message.to_vec(), recovered.unwrap());
     }
+
+    #[allow(clippy::vec_init_then_push)]
     #[test]
     fn test_signal_compatibility_workflow2() {
         // 1. Variable length input (not a multiple of 48)
@@ -427,9 +429,8 @@ mod tests {
 
         // Let's just grab 'k' shares from random indices
         let mut robust_shares = Vec::new();
-        let test_indices = vec![5, 0, 99, 3]; // Shuffled indices
-        for i in 0..k {
-            let idx = test_indices[i];
+        let test_indices = [5, 0, 99, 3]; // Shuffled indices
+        for &idx in test_indices.iter().take(k) {
             robust_shares.push(codec.chunk_at(idx as u16));
         }
 
