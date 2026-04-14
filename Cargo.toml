@@ -10,7 +10,7 @@ libcrux-ml-kem = { version = "0.0.8", default-features = false, features = ["inc
 libcrux-sha3 = "0.0.8"
 # reed-solomon-simd currently, need to consider alternative for wasm
 g2p = "1.2.2"
-rand = "0.9.2"
+rand = "0.9.3"
 rand_core = "0.9.5"
 
 [features]
